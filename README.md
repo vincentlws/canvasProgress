@@ -19,5 +19,10 @@ var timer = setInterval(function() {
 	}
 }, 100)；
 ```
-实现效果：
-    
+效果：
+![1][1]    ![2][2]   ![3][3]
+
+
+  [1]: https://github.com/vincentlws/canvasProgress/blob/master/img/1.png?raw=true
+  [2]: https://github.com/vincentlws/canvasProgress/blob/master/img/2.png?raw=true
+  [3]: https://github.com/vincentlws/canvasProgress/blob/master/img/3.png?raw=true

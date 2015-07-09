@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimal-ui" />
+	<meta content="yes"name="apple-mobile-web-app-capable"/>
+ 	<meta content="black"name="apple-mobile-web-app-status-bar-style"/>
+	<meta name="format-detection"content="telphone=no"/>
+	<title>canvasProgress</title>
+
+</head>
+<body>	
+<canvas id="canvasEl" style="background-color:#000" height="100px" width="100px"></canvas>
+</body>
+<script type="text/javascript" src="progress.js"></script>
+<script type="text/javascript">
+
+	var progress = new Progress({element: document.getElementById('canvasEl')})
+
+	var n = 0;
+
+	var timer = setInterval(function() {
+		if (n++ !== 100) {
+			progress.setProgress(n);		
+		} else {
+			clearInterval(timer);
+		}
+	}, 100)
+
+</script>
+</html>

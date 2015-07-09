@@ -45,9 +45,10 @@ Progress.prototype = {
 	*	@参数 n: 当前进度
 	*
 	*/
-	drawCircle: function(n) {
+	_drawCircle: function(n) {
 		var option = this.option,
 			context = this.context,
+			pi = Math.PI,
 			inSideCircle = option.inSideCircle,
 			outSideCircle = option.outSideCircle;
 		
@@ -61,7 +62,7 @@ Progress.prototype = {
 		})			
 
 		//绘制圆
-		context.arc(this.hElWidth, this.hElHeight, option.radius + outSideCircle.lineWidth - inSideCircle.lineWidth, 0, Math.PI * 2, false);
+		context.arc(this.hElWidth, this.hElHeight, option.radius + outSideCircle.lineWidth - inSideCircle.lineWidth, 0, pi * 2, false);
 
 		//画出圆形
 		context.stroke();
@@ -76,7 +77,7 @@ Progress.prototype = {
 		})							
 
 		//根据当前进度绘制圆
-		context.arc(this.hElWidth, this.hElHeight, option.radius, -(Math.PI / 2), Math.PI * 2 / 100 * (n - 25), false);
+		context.arc(this.hElWidth, this.hElHeight, option.radius, -(pi / 2), pi * 2 / 100 * (n - 25), false);
 
 		//画出圆形
 		context.stroke();
@@ -86,7 +87,7 @@ Progress.prototype = {
 	*	绘制进度
 	*	@参数 n: 当前进度
 	*/
-	drawText: function(n) {
+	_drawText: function(n) {
 		var context = this.context,
 			number = n + '%',
 			numberWidth = 0,
@@ -103,7 +104,7 @@ Progress.prototype = {
 		//得出数值宽度
 		numberWidth = context.measureText(number).width;
 
-		context.fillText(number, this.hElWidth - numberWidth / 2, this.hElHeight + 10 / 3)	
+		context.fillText(number, this.hElWidth - numberWidth / 2, this.hElHeight + 10 / 3)
 	},
 
 	/*
@@ -114,8 +115,8 @@ Progress.prototype = {
 		//清除canvas内容
 		this.context.clearRect(0, 0, this.elWidth, this.elHeight);							
 
-		this.drawCircle(n);
+		this._drawCircle(n);
 		
-		this.drawText(n);					
+		this._drawText(n);					
 	}
 }

@@ -50,8 +50,7 @@ Progress.prototype = {
 			context = this.context,
 			inSideCircle = option.inSideCircle,
 			outSideCircle = option.outSideCircle;
-
-		//绘制透明度为0.5的圆
+		
 		context.beginPath();
 
 		//设置透明度，样式与线条宽度
